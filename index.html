@@ -351,8 +351,7 @@
 
       
         
-          
-            <p>基于Hexo和Github搭建技术博客</p>
+          <p>基于Hexo和Github搭建技术博客</p>
 <h2 id="准备"><a href="#准备" class="headerlink" title="准备:"></a>准备:</h2><p><code>nodejs</code>、<code>git</code>、<code>npm</code>、<code>hexo</code></p>
 <p>验证有没有敲命令，eg: <code>npm -v</code>，没有装先去装</p>
 <ul>
@@ -412,35 +411,13 @@
 </ul>
 <p>  现在只是在本地搭建了一个技术博客，</p>
 <p>  要想把博客内容让所有人都能看到，就得借助Github了，把博客内容部署到Github上去</p>
-<h2 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h2><ol>
-<li>GitHub上登录/注册一个账号，创建仓库</li>
-</ol>
-<ul>
-<li><p>如果是团队博客</p>
-<p>先<code>New organization</code>，再<code>New repository</code>（名字为<code>xxx.github.io</code>，<code>xxx</code>为organization名称）</p>
-</li>
-<li><p>如果是个人博客：</p>
-<p><code>New repository</code>（名字为<code>xxx.github.io</code>，<code>xxx</code>为github账号）</p>
-</li>
-</ul>
-<ol start="2">
-<li>博客的根目录的<code>_config.yml</code>文件的底部<code>deploy</code>设置为：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/SkytechMobile/SkytechMobile.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-
-<p>注意：冒号（:）后都有一个空格。你可以把此段代码复制过去，并把<code>https://github.com/SkytechMobile/SkytechMobile.github.io.git</code>替换为你自己的Github仓库路径</p>
-<ol start="3">
-<li><p>部署</p>
-<p>根目录下执行</p>
-<p><code>hexo g</code></p>
-<p><code>hexo d</code></p>
-<p>如果此时报错你可以输入<code>npm install hexo-deployer-git --save</code>来解决</p>
-</li>
-<li><p>以上都没什么问题的话，访 <a href="http://SkytechMobile.github.io/" target="_blank" rel="noopener">http://SkytechMobile.github.io/</a> 就能看到自己的博客了</p>
-</li>
-</ol>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/09/26/搭建博客/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
