@@ -5,8 +5,11 @@
     <url>%2F2019%2F09%2F26%2F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%2F</url>
     <content type="text"><![CDATA[基于Hexo和Github搭建技术博客 准备:nodejs、git、npm、hexo 验证有没有敲命令，eg: npm -v，没有装先去装 npm可通过homebrew安装 brew install npm Hexo安装 npm install hexo-cli -g 创建博客 本地创建一个存放博客文件夹 eg: SkytechMobileBlog 切到SkytechMobileBlog目录下执行初始化 hexo init 然后安装依赖 npm install 生成静态文件 hexo g 创建服务 hexo s hexo常用命令： 命令 含义 hexo init 初始化一个文件夹，它会为这个文件夹配置所有骨架 hexo g 即hexo generate，生成静态文件 hexo s 即hexo server，创建服务 hexo d 即hexo deploy,用于将本地文件发布到github上 hexo n 即hexo new,用于新建一篇文章 现在只是在本地搭建了一个技术博客， 要想把博客内容让所有人都能看到，就得借助Github了，把博客内容部署到Github上去 部署到github GitHub上登录/注册一个账号，创建仓库 如果是团队博客 先New organization，再New repository（名字为xxx.github.io，xxx为organization名称） 如果是个人博客： New repository（名字为xxx.github.io，xxx为github账号） 博客的根目录的_config.yml文件的底部deploy设置为： 1234deploy: type: git repository: https://github.com/SkytechMobile/SkytechMobile.github.io.git branch: master 注意：冒号（:）后都有一个空格。你可以把此段代码复制过去，并把https://github.com/SkytechMobile/SkytechMobile.github.io.git替换为你自己的Github仓库路径 部署 根目录下执行 hexo g hexo d 如果此时报错你可以输入npm install hexo-deployer-git --save来解决 以上都没什么问题的话，访 http://SkytechMobile.github.io/ 就能看到自己的博客了]]></content>
       <categories>
-        <category>搭建博客</category>
+        <category>笔记</category>
       </categories>
+      <tags>
+        <tag>搭建博客</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Hello World]]></title>
