@@ -239,6 +239,235 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/26/搭建博客/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Skytech">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Skytech Mobile 团队博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/26/搭建博客/" itemprop="url">搭建博客笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-26T14:40:33+08:00">
+                2019-09-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/搭建博客/" itemprop="url" rel="index">
+                    <span itemprop="name">搭建博客</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/common_on.png" alt></p>
+<p>基于Hexo和Github搭建技术博客</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备:"></a>准备:</h2><p><code>nodejs</code>、<code>git</code>、<code>npm</code>、<code>hexo</code></p>
+<p>验证有没有敲命令，eg: <code>npm -v</code>，没有装先去装</p>
+<ul>
+<li><p>npm可通过homebrew安装</p>
+<p><code>brew install npm</code> </p>
+</li>
+<li><p>Hexo安装</p>
+<p><code>npm install hexo-cli -g</code></p>
+</li>
+</ul>
+<h2 id="创建博客"><a href="#创建博客" class="headerlink" title="创建博客"></a>创建博客</h2><ul>
+<li><p>本地创建一个存放博客文件夹</p>
+<p>eg: SkytechMobileBlog</p>
+</li>
+<li><p>切到<code>SkytechMobileBlog</code>目录下执行<code>初始化</code></p>
+<p><code>hexo init</code></p>
+</li>
+<li><p>然后安装依赖</p>
+<p><code>npm install</code></p>
+</li>
+<li><p>生成静态文件</p>
+<p><code>hexo g</code></p>
+</li>
+<li><p>创建服务</p>
+<p><code>hexo s</code></p>
+</li>
+<li><p>hexo常用命令：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>hexo init</code></td>
+<td>初始化一个文件夹，它会为这个文件夹配置所有骨架</td>
+</tr>
+<tr>
+<td><code>hexo g</code></td>
+<td>即hexo generate，生成静态文件</td>
+</tr>
+<tr>
+<td><code>hexo s</code></td>
+<td>即hexo server，创建服务</td>
+</tr>
+<tr>
+<td><code>hexo d</code></td>
+<td>即hexo deploy,用于将本地文件发布到github上</td>
+</tr>
+<tr>
+<td><code>hexo n</code></td>
+<td>即hexo new,用于新建一篇文章</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p>  现在只是在本地搭建了一个技术博客，</p>
+<p>  要想把博客内容让所有人都能看到，就得借助Github了，把博客内容部署到Github上去</p>
+<h2 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h2><ol>
+<li>GitHub上登录/注册一个账号，创建仓库</li>
+</ol>
+<ul>
+<li><p>如果是团队博客</p>
+<p>先<code>New organization</code>，再<code>New repository</code>（名字为<code>xxx.github.io</code>，<code>xxx</code>为organization名称）</p>
+</li>
+<li><p>如果是个人博客：</p>
+<p><code>New repository</code>（名字为<code>xxx.github.io</code>，<code>xxx</code>为github账号）</p>
+</li>
+</ul>
+<ol start="2">
+<li>博客的根目录的<code>_config.yml</code>文件的底部<code>deploy</code>设置为：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/SkytechMobile/SkytechMobile.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<p>注意：冒号（:）后都有一个空格。你可以把此段代码复制过去，并把<code>https://github.com/SkytechMobile/SkytechMobile.github.io.git</code>替换为你自己的Github仓库路径</p>
+<ol start="3">
+<li><p>部署</p>
+<p>根目录下执行</p>
+<p><code>hexo g</code></p>
+<p><code>hexo d</code></p>
+<p>如果此时报错你可以输入<code>npm install hexo-deployer-git --save</code>来解决</p>
+</li>
+<li><p>以上都没什么问题的话，访 <a href="http://SkytechMobile.github.io/" target="_blank" rel="noopener">http://SkytechMobile.github.io/</a> 就能看到自己的博客了</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/26/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -404,12 +633,21 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
             
 
             
