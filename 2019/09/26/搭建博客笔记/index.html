@@ -79,20 +79,21 @@
 
 
 
-<meta name="description" content="基于Hexo和Github搭建技术博客 准备:nodejs、git、npm、hexo 验证有没有敲命令，eg: npm -v，没有装先去装  npm可通过homebrew安装 brew install npm   Hexo安装 npm install hexo-cli -g   创建博客 本地创建一个存放博客文件夹 eg: SkytechMobileBlog  切到SkytechMobileBlo">
+<meta name="description" content="基于Hexo和Github搭建技术博客 准备:nodejs、git、npm、hexo 验证有没有敲命令，eg: npm -v，没有装先去装  npm可通过homebrew安装 brew install npm   Hexo安装 npm install hexo-cli -g   开始搭建博客 本地创建一个存放博客文件夹 eg: SkytechMobileBlog  切到SkytechMobileB">
 <meta name="keywords" content="搭建博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建博客笔记">
 <meta property="og:url" content="http://yoursite.com/2019/09/26/搭建博客笔记/index.html">
 <meta property="og:site_name" content="Skytech Mobile 团队博客">
-<meta property="og:description" content="基于Hexo和Github搭建技术博客 准备:nodejs、git、npm、hexo 验证有没有敲命令，eg: npm -v，没有装先去装  npm可通过homebrew安装 brew install npm   Hexo安装 npm install hexo-cli -g   创建博客 本地创建一个存放博客文件夹 eg: SkytechMobileBlog  切到SkytechMobileBlo">
+<meta property="og:description" content="基于Hexo和Github搭建技术博客 准备:nodejs、git、npm、hexo 验证有没有敲命令，eg: npm -v，没有装先去装  npm可通过homebrew安装 brew install npm   Hexo安装 npm install hexo-cli -g   开始搭建博客 本地创建一个存放博客文件夹 eg: SkytechMobileBlog  切到SkytechMobileB">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/09/26/搭建博客笔记/useImage.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/26/搭建博客笔记/common_on.png">
-<meta property="og:updated_time" content="2019-09-26T09:15:29.320Z">
+<meta property="og:updated_time" content="2019-09-26T11:27:08.953Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建博客笔记">
-<meta name="twitter:description" content="基于Hexo和Github搭建技术博客 准备:nodejs、git、npm、hexo 验证有没有敲命令，eg: npm -v，没有装先去装  npm可通过homebrew安装 brew install npm   Hexo安装 npm install hexo-cli -g   创建博客 本地创建一个存放博客文件夹 eg: SkytechMobileBlog  切到SkytechMobileBlo">
-<meta name="twitter:image" content="http://yoursite.com/2019/09/26/搭建博客笔记/common_on.png">
+<meta name="twitter:description" content="基于Hexo和Github搭建技术博客 准备:nodejs、git、npm、hexo 验证有没有敲命令，eg: npm -v，没有装先去装  npm可通过homebrew安装 brew install npm   Hexo安装 npm install hexo-cli -g   开始搭建博客 本地创建一个存放博客文件夹 eg: SkytechMobileBlog  切到SkytechMobileB">
+<meta name="twitter:image" content="http://yoursite.com/2019/09/26/搭建博客笔记/useImage.png">
 
 
 
@@ -345,7 +346,7 @@
 <p><code>npm install hexo-cli -g</code></p>
 </li>
 </ul>
-<h2 id="创建博客"><a href="#创建博客" class="headerlink" title="创建博客"></a>创建博客</h2><ul>
+<h2 id="开始搭建博客"><a href="#开始搭建博客" class="headerlink" title="开始搭建博客"></a>开始搭建博客</h2><ul>
 <li><p>本地创建一个存放博客文件夹</p>
 <p>eg: SkytechMobileBlog</p>
 </li>
@@ -422,6 +423,34 @@
 </li>
 <li><p>以上都没什么问题的话，访 <a href="http://SkytechMobile.github.io/" target="_blank" rel="noopener">http://SkytechMobile.github.io/</a> 就能看到自己的博客了</p>
 </li>
+</ol>
+<h2 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h2><p>Eg: 把主题设置为<code>next</code>，最火的hexo的主题。</p>
+<ol>
+<li><p>下载主题</p>
+<p>在跟目录文件夹下输入如下命令下载next主题</p>
+<p><code>git clone https://github.com/iissnan/hexo-theme-next themes/next</code></p>
+</li>
+<li><p>设置主题</p>
+<p>把<code>SKytechMobileBlog/_config.yml</code>文件称为<code>站点配置</code></p>
+<p>把<code>SKytechMobileBlog/_config.yml</code>文件称为<code>主题配置</code></p>
+</li>
+</ol>
+<p>下载完成后，将<code>站点配置</code>文件的<code>theme</code>字段的值改为<code>next</code>，重新编译并上传到Github上后，访问博客链接，你就会发现主题已经改成next了</p>
+<p>next的默认语言为英文，你可以更改为简体中文，找到并打开<code>站点配置</code>文件，找到<code>language</code>字段，将值改为<code>zh-Hans</code></p>
+<ol start="3">
+<li>这里介绍下<code>站点配置</code>文件部分字段的含义：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title: SkytechMobile团队博客 // 博客名称</span><br><span class="line">subtitle:			   // 博客副名称</span><br><span class="line">description:           // 描述</span><br><span class="line">author: 晨之科SDK团队    // 作者</span><br><span class="line">language: zh-Hans      // 语言</span><br></pre></td></tr></table></figure>
+
+<h2 id="关于写博客"><a href="#关于写博客" class="headerlink" title="关于写博客"></a>关于写博客</h2><h3 id="一、如何新建博客"><a href="#一、如何新建博客" class="headerlink" title="一、如何新建博客"></a>一、如何新建博客</h3><p>新建命令</p>
+<p><code>hexo new xxx</code></p>
+<p>执行上面的命令即在<code>source/_posts/</code>目录下新建了名为<code>xxx的md文件</code>和<code>资源文件夹</code></p>
+<h3 id="二、写博客注意点"><a href="#二、写博客注意点" class="headerlink" title="二、写博客注意点"></a>二、写博客注意点</h3><ol>
+<li>如何上传带图片的博客？</li>
+</ol>
+<p><img src="useImage.png" alt></p>
+<ol start="2">
+<li>设置</li>
 </ol>
 <p><img src="common_on.png" alt></p>
 
@@ -594,7 +623,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备"><span class="nav-number">1.</span> <span class="nav-text">准备:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建博客"><span class="nav-number">2.</span> <span class="nav-text">创建博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到github"><span class="nav-number">3.</span> <span class="nav-text">部署到github</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备"><span class="nav-number">1.</span> <span class="nav-text">准备:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始搭建博客"><span class="nav-number">2.</span> <span class="nav-text">开始搭建博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到github"><span class="nav-number">3.</span> <span class="nav-text">部署到github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题配置"><span class="nav-number">4.</span> <span class="nav-text">主题配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于写博客"><span class="nav-number">5.</span> <span class="nav-text">关于写博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、如何新建博客"><span class="nav-number">5.1.</span> <span class="nav-text">一、如何新建博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、写博客注意点"><span class="nav-number">5.2.</span> <span class="nav-text">二、写博客注意点</span></a></li></ol></li></ol></div>
             
 
           </div>
