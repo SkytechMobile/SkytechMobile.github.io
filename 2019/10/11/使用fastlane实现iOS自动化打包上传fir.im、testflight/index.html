@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="自动化打包,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言日复一日重复打包工作，是在浪费宝贵的时间 自动化打包工具应运而生，是我们解放双手的利器 fastlane官方文档 github地址 安装fastlane安装最新的Xcode命令行工具 可以Developer Apple上手动下载对应的Command Line Tools 安装  fastlane官方推荐的xcode-select --install 安装时最后结果是*不能安装该软件*** 安装">
+<meta name="keywords" content="自动化打包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用fastlane实现iOS自动化打包上传fir.im、testflight">
+<meta property="og:url" content="http://yoursite.com/2019/10/11/使用fastlane实现iOS自动化打包上传fir.im、testflight/index.html">
+<meta property="og:site_name" content="Skytech Mobile 团队博客">
+<meta property="og:description" content="前言日复一日重复打包工作，是在浪费宝贵的时间 自动化打包工具应运而生，是我们解放双手的利器 fastlane官方文档 github地址 安装fastlane安装最新的Xcode命令行工具 可以Developer Apple上手动下载对应的Command Line Tools 安装  fastlane官方推荐的xcode-select --install 安装时最后结果是*不能安装该软件*** 安装">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/10/11/使用fastlane实现iOS自动化打包上传fir.im、testflight/1970838-d07d8f2b55853319.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/11/使用fastlane实现iOS自动化打包上传fir.im、testflight/Xnip2019-10-09_14-40-37.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/10/11/使用fastlane实现iOS自动化打包上传fir.im、testflight/Xnip2019-10-10_15-01-27.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/10/11/使用fastlane实现iOS自动化打包上传fir.im、testflight/Xnip2019-10-10_15-22-43.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/10/11/使用fastlane实现iOS自动化打包上传fir.im、testflight/Xnip2019-10-10_15-01-59.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/10/11/使用fastlane实现iOS自动化打包上传fir.im、testflight/Xnip2019-10-10_11-39-52.jpg">
+<meta property="og:updated_time" content="2019-10-11T12:43:19.762Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用fastlane实现iOS自动化打包上传fir.im、testflight">
+<meta name="twitter:description" content="前言日复一日重复打包工作，是在浪费宝贵的时间 自动化打包工具应运而生，是我们解放双手的利器 fastlane官方文档 github地址 安装fastlane安装最新的Xcode命令行工具 可以Developer Apple上手动下载对应的Command Line Tools 安装  fastlane官方推荐的xcode-select --install 安装时最后结果是*不能安装该软件*** 安装">
+<meta name="twitter:image" content="http://yoursite.com/2019/10/11/使用fastlane实现iOS自动化打包上传fir.im、testflight/1970838-d07d8f2b55853319.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/10/11/使用fastlane实现iOS自动化打包上传fir.im、testflight/">
+
+
+
+
+
+  <title>使用fastlane实现iOS自动化打包上传fir.im、testflight | Skytech Mobile 团队博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Skytech Mobile 团队博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/11/使用fastlane实现iOS自动化打包上传fir.im、testflight/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Skytech">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Skytech Mobile 团队博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">使用fastlane实现iOS自动化打包上传fir.im、testflight</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-11T16:41:33+08:00">
+                2019-10-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/作者：Fan-Chason/" itemprop="url" rel="index">
+                    <span itemprop="name">作者：Fan Chason</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><em>日复一日重复打包工作，是在浪费宝贵的时间</em></p>
+<p><em>自动化打包工具应运而生，是我们解放双手的利器</em></p>
+<p><a href="https://docs.fastlane.tools/" target="_blank" rel="noopener">fastlane官方文档</a></p>
+<p><a href="https://github.com/fastlane/fastlane/tree/master/fastlane/docs#fastfile" target="_blank" rel="noopener">github地址</a></p>
+<h2 id="安装fastlane"><a href="#安装fastlane" class="headerlink" title="安装fastlane"></a>安装fastlane</h2><h3 id="安装最新的Xcode命令行工具"><a href="#安装最新的Xcode命令行工具" class="headerlink" title="安装最新的Xcode命令行工具"></a>安装最新的Xcode命令行工具</h3><blockquote>
+<p>可以<a href="https://developer.apple.com/download/more/" target="_blank" rel="noopener">Developer Apple</a>上手动下载对应的<code>Command Line Tools</code> 安装</p>
+</blockquote>
+<p><em>fastlane官方推荐的<code>xcode-select --install</code> 安装时最后结果是*</em>不能安装该软件***</p>
+<h3 id="安装-fastlane"><a href="#安装-fastlane" class="headerlink" title="安装 fastlane"></a>安装 fastlane</h3><p><em>放到<code>/usr/local/bin</code>下面</em></p>
+<p><code>sudo gem install -n /usr/local/bin fastlane</code></p>
+<p>其他的安装方法：（扩展，可跳过）</p>
+<p><img src="1970838-d07d8f2b55853319.png" alt></p>
+<blockquote>
+<p>第一种是通过 Homebrew 软件包管理器来进行安装，<br>第二种就是我们最熟悉的方式，下载安装包来进行安装,<br>第三种是通过 RubyGems 来进行，RubyGems 是一个方便的 Ruby 程序包管理器，可以将一个 Ruby 应用程序打包到一个 Gem 里，作为一个安装单元。 一个  Gem 就是一个封装起来的应用程序或代码库</p>
+</blockquote>
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>添加用户环境变量 </p>
+<p><code>vim ~/.bash_profile</code></p>
+<p>添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">export PATH=/usr/local/bin:$PATH</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>保存退出，使用 <code>source ~/.bash_profile</code> 来使配置立即生效</p>
+<p>现在在项目根目录下可以使用<code>fastlane</code>了</p>
+<h2 id="fastlane使用"><a href="#fastlane使用" class="headerlink" title="fastlane使用"></a>fastlane使用</h2><h3 id="在项目根目录下初始化"><a href="#在项目根目录下初始化" class="headerlink" title="在项目根目录下初始化"></a>在项目根目录下初始化</h3><p><code>fastlane init</code></p>
+<ul>
+<li><p>四个选项</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">What would you like to use fastlane for?</span><br><span class="line"></span><br><span class="line">1.Automate screenshots</span><br><span class="line">2.Automate beta distribution to TestFlight</span><br><span class="line">3.Automate App Store distribution</span><br><span class="line">4.Manual setup - manually setup your project to automate your tasks</span><br></pre></td></tr></table></figure>
+
+<p>解释：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1 自动截屏。（帮助我们截取App的显示到appstore上的 截图）</span><br><span class="line">2 自动发布beta到TestFlight上，用于内测。</span><br><span class="line">3 自动打包发布到AppStore上。</span><br><span class="line">4 手动设置。</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<p>  上传fir选择的4</p>
+<ul>
+<li>初始化成功会生成如下目录</li>
+</ul>
+<p><img src="Xnip2019-10-09_14-40-37.jpg" alt></p>
+<h3 id="配置相关文件"><a href="#配置相关文件" class="headerlink" title="配置相关文件"></a>配置相关文件</h3><h4 id="配置Gemfile"><a href="#配置Gemfile" class="headerlink" title="配置Gemfile"></a>配置Gemfile</h4><p>如果使用cocoapods要加上（<em>注意带上当前安装的pod的版本号</em>，否则会报错）</p>
+<p><code>gem &#39;cocoapods&#39;, &#39;~&gt;1.8.3&#39;</code> </p>
+<p>执行 </p>
+<p><code>bundle install</code></p>
+<blockquote>
+<p>第一次运行 bundle install 时自动生成 Gemfile.lock 文件。以后每次运行 bundle install 时,如果 Gemfile 中的条目不变 bundle 就不会再次计算 gem 依赖版本号，直接根据 Gemfile.lock 检查和安装 gem。如果出现依赖冲突时可以通过 bundle update 更新 Gemfile.lock</p>
+</blockquote>
+<h4 id="配置Fastfile"><a href="#配置Fastfile" class="headerlink" title="配置Fastfile"></a>配置Fastfile</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">default_platform(<span class="symbol">:ios</span>)</span><br><span class="line"></span><br><span class="line">platform <span class="symbol">:ios</span> <span class="keyword">do</span></span><br><span class="line">  </span><br><span class="line">  	before_all <span class="keyword">do</span></span><br><span class="line">    	<span class="comment"># 如果你用 pod install</span></span><br><span class="line">    	cocoapods </span><br><span class="line">  	<span class="keyword">end</span></span><br><span class="line">  </span><br><span class="line">  	desc <span class="string">"打包上传ipa到fir.im"</span></span><br><span class="line">  	lane <span class="symbol">:fir</span> <span class="keyword">do</span></span><br><span class="line">    </span><br><span class="line">  	<span class="comment"># 如果你没有申请adhoc证书，sigh会自动帮你申请，并且添加到Xcode里</span></span><br><span class="line">  	<span class="comment">#	sigh(adhoc: true)</span></span><br><span class="line">      </span><br><span class="line">  	<span class="comment"># 以下两个action来自fastlane-plugin-versioning，</span></span><br><span class="line">  	<span class="comment"># 第一个递增 Build，第二个设定Version。</span></span><br><span class="line">  	<span class="comment"># 如果你有多个target，就必须指定target的值，否则它会直接找找到的第一个plist修改</span></span><br><span class="line">  	<span class="comment"># 在这里我建议每一个打的包的Build都要不一样，这样crash了拿到日志，可以对应到ipa上</span></span><br><span class="line">  </span><br><span class="line">    increment_build_number_in_plist(</span><br><span class="line">        <span class="symbol">target:</span> <span class="string">'TestDemo'</span>,</span><br><span class="line"> 				<span class="symbol">build_number:</span> <span class="string">'5'</span></span><br><span class="line">    )</span><br><span class="line">    increment_version_number_in_plist(</span><br><span class="line">        <span class="symbol">target:</span> <span class="string">'TestDemo'</span>,</span><br><span class="line">        <span class="symbol">version_number:</span> <span class="string">'1.0'</span></span><br><span class="line">    )</span><br><span class="line">    <span class="comment"># gym用来编译ipa</span></span><br><span class="line">    gym(</span><br><span class="line">        <span class="symbol">scheme:</span> <span class="string">'TestDemo'</span>,</span><br><span class="line">        <span class="symbol">export_method:</span> <span class="string">"ad-hoc"</span>, <span class="comment"># 指定打包方式 ["app-store", "ad-hoc", "package", "enterprise", "development", "developer-id"]</span></span><br><span class="line">        <span class="comment">#teamID: "xxxxxx",  # developer.apple.com 上查看</span></span><br><span class="line">        <span class="symbol">xcargs:</span> <span class="string">"-allowProvisioningUpdates"</span>,</span><br><span class="line">        <span class="symbol">output_directory:</span> <span class="string">'./firim'</span>,</span><br><span class="line">        <span class="symbol">output_name:</span> <span class="string">'TestDemo.ipa'</span></span><br><span class="line">    )</span><br><span class="line">    <span class="comment"># 上传ipa到fir.im服务器，在fir.im获取firim_api_token</span></span><br><span class="line">    firim(<span class="symbol">firim_api_token:</span> <span class="string">"xxxxxxxxxxxxx"</span>)  <span class="comment"># token 在fir 上查看。</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">  </span><br><span class="line">  desc <span class="string">"打包上传testflight/app-store"</span></span><br><span class="line">  lane <span class="symbol">:tf</span> <span class="keyword">do</span></span><br><span class="line"></span><br><span class="line">    increment_build_number_in_plist(</span><br><span class="line">        <span class="symbol">target:</span> <span class="string">'TestDemo'</span></span><br><span class="line">    )</span><br><span class="line">    increment_version_number_in_plist(</span><br><span class="line">        <span class="symbol">target:</span> <span class="string">'TestDemo'</span>,</span><br><span class="line">        <span class="symbol">version_number:</span> <span class="string">'1.0'</span></span><br><span class="line">    )</span><br><span class="line">    <span class="comment"># gym用来编译ipa</span></span><br><span class="line">    gym(</span><br><span class="line">        <span class="symbol">scheme:</span> <span class="string">'TestDemo'</span>,</span><br><span class="line">        <span class="symbol">export_method:</span> <span class="string">"app-store"</span>, <span class="comment"># 指定打包方式</span></span><br><span class="line">        <span class="comment">#teamID: "xxxxxx",  # developer.apple.com 上查看</span></span><br><span class="line">        <span class="symbol">xcargs:</span> <span class="string">"-allowProvisioningUpdates"</span>,</span><br><span class="line">        <span class="symbol">output_directory:</span> <span class="string">'./testflight'</span>,</span><br><span class="line">        <span class="symbol">output_name:</span> <span class="string">'TestDemo.ipa'</span></span><br><span class="line">    )</span><br><span class="line">    <span class="comment">#upload_to_testflight</span></span><br><span class="line">    appstore       <span class="comment"># 上传你的App iTunes Connect</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>关于build_number与version_number</p>
+<p>1,version_number、build_number都没有设置，会自动获取项目的version和build版本号，并且都自动加1。例如，fastlane打包前后版本号变化：ver1.0.2（Build 11）-&gt; ver1.0.3（Build 12）；<br>2,version_number设置了、build_number没设置，会自动获取项目build版本号，build版本号+1；<br>3,version_number、build_number都设置了，那打包出来的版本号就是设置的版本号，不会自动+1；</p>
+</blockquote>
+<h4 id="添加两个插件"><a href="#添加两个插件" class="headerlink" title="添加两个插件"></a>添加两个插件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fastlane add_plugin versioning</span><br><span class="line">fastlane add_plugin firim</span><br></pre></td></tr></table></figure>
+
+<h3 id="执行打包"><a href="#执行打包" class="headerlink" title="执行打包"></a>执行打包</h3><h4 id="上传fir-im"><a href="#上传fir-im" class="headerlink" title="上传fir.im"></a>上传fir.im</h4><p><code>fastlane fir</code></p>
+<blockquote>
+<p><code>fir</code>为Fastfile文件中<code>lane :fir do</code>处设置的名字，可以为别的名字</p>
+</blockquote>
+<p>执行打包成功如下图所示：</p>
+<img src="Xnip2019-10-10_15-01-27.jpg" style="zoom:5%">
+
+<ul>
+<li><p>根目录下<code>firim</code>文件夹下可看到<code>ipa</code>文件</p>
+<p><img src="Xnip2019-10-10_15-22-43.jpg" alt></p>
+</li>
+<li><p>fir.im应用列表，多了刚上传的项目</p>
+<p><img src="Xnip2019-10-10_15-01-59.jpg" alt></p>
+</li>
+</ul>
+<h4 id="上传testFlight"><a href="#上传testFlight" class="headerlink" title="上传testFlight"></a>上传testFlight</h4><p><code>fastlane tf</code></p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
+<li>Could not find action, lane or variable ‘increment_build_number_in_plist’…</li>
+</ol>
+<p><img src="Xnip2019-10-10_11-39-52.jpg" alt></p>
+<ul>
+<li><p>解决：</p>
+<p><code>fastlane add_plugin versioning</code></p>
+</li>
+</ul>
+<p>参考：<a href="https://github.com/SiarheiFedartsou/fastlane-plugin-versioning/issues/20" target="_blank" rel="noopener">https://github.com/SiarheiFedartsou/fastlane-plugin-versioning/issues/20</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://www.jianshu.com/p/2918cf082b9d" target="_blank" rel="noopener">fastlane 自动打包到 fir.im 的踩坑之路</a></li>
+<li><a href="https://docs.fastlane.tools/getting-started/ios/setup/" target="_blank" rel="noopener">fastlane ios快读入门文档</a></li>
+<li><a href="https://www.jianshu.com/p/19ae8cc865b0" target="_blank" rel="noopener">fastlane使用说明书</a></li>
+<li><a href="https://www.jianshu.com/p/48343a655f75" target="_blank" rel="noopener">fastlane 在mac上配置iOS自动化上架</a></li>
+<li><a href="https://www.jianshu.com/p/eab3e1ded17d" target="_blank" rel="noopener">iOS 自动打包 - fastlane （一）</a></li>
+<li><a href="https://juejin.im/post/5a7d51986fb9a063435ece35" target="_blank" rel="noopener">和重复劳动说再见-使用fastlane进行iOS打包</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/25976099" target="_blank" rel="noopener">macOS/Linux 环境变量设置</a></li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/自动化打包/" rel="tag"># 自动化打包</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/26/基于Hexo和Github搭建技术博客/" rel="next" title="基于Hexo和Github搭建技术博客">
+                <i class="fa fa-chevron-left"></i> 基于Hexo和Github搭建技术博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Skytech</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装fastlane"><span class="nav-number">2.</span> <span class="nav-text">安装fastlane</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装最新的Xcode命令行工具"><span class="nav-number">2.1.</span> <span class="nav-text">安装最新的Xcode命令行工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-fastlane"><span class="nav-number">2.2.</span> <span class="nav-text">安装 fastlane</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置环境变量"><span class="nav-number">3.</span> <span class="nav-text">配置环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fastlane使用"><span class="nav-number">4.</span> <span class="nav-text">fastlane使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在项目根目录下初始化"><span class="nav-number">4.1.</span> <span class="nav-text">在项目根目录下初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置相关文件"><span class="nav-number">4.2.</span> <span class="nav-text">配置相关文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置Gemfile"><span class="nav-number">4.2.1.</span> <span class="nav-text">配置Gemfile</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置Fastfile"><span class="nav-number">4.2.2.</span> <span class="nav-text">配置Fastfile</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加两个插件"><span class="nav-number">4.2.3.</span> <span class="nav-text">添加两个插件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行打包"><span class="nav-number">4.3.</span> <span class="nav-text">执行打包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#上传fir-im"><span class="nav-number">4.3.1.</span> <span class="nav-text">上传fir.im</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#上传testFlight"><span class="nav-number">4.3.2.</span> <span class="nav-text">上传testFlight</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">5.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Skytech</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
