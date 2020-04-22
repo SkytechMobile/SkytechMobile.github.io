@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/09/26/基于Hexo和Github搭建技术博客/useImage.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/26/基于Hexo和Github搭建技术博客/common_on.png">
-<meta property="og:updated_time" content="2019-10-11T08:54:07.107Z">
+<meta property="og:updated_time" content="2020-04-22T01:55:33.135Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Hexo和Github搭建技术博客">
 <meta name="twitter:description" content="准备:nodejs、git、npm、hexo 验证有没有敲命令，eg: npm -v，没有装先去装  npm可通过homebrew安装 brew install npm   Hexo安装 npm install hexo-cli -g   开始搭建博客 本地创建一个存放博客文件夹 eg: SkytechMobileBlog  切到SkytechMobileBlog目录下执行初始化 hexo ini">
@@ -418,6 +418,8 @@
 <p>根目录下执行</p>
 <p><code>hexo g</code></p>
 <p><code>hexo d</code></p>
+<p>或者直接</p>
+<p><code>hexo g -d</code></p>
 <p>如果此时报错你可以输入<code>npm install hexo-deployer-git --save</code>来解决</p>
 </li>
 <li><p>以上都没什么问题的话，访 <a href="http://SkytechMobile.github.io/" target="_blank" rel="noopener">http://SkytechMobile.github.io/</a> 就能看到自己的博客了</p>
@@ -444,7 +446,10 @@
 <h2 id="关于写博客"><a href="#关于写博客" class="headerlink" title="关于写博客"></a>关于写博客</h2><h3 id="一、如何新建博客"><a href="#一、如何新建博客" class="headerlink" title="一、如何新建博客"></a>一、如何新建博客</h3><p>新建命令</p>
 <p><code>hexo new xxx</code></p>
 <p>执行上面的命令即在<code>source/_posts/</code>目录下新建了名为<code>xxx的md文件</code>和<code>资源文件夹</code></p>
-<h3 id="二、写博客注意点"><a href="#二、写博客注意点" class="headerlink" title="二、写博客注意点"></a>二、写博客注意点</h3><ol>
+<p>###二、将本地博客发布到线上</p>
+<p>生成静态文件，并将本地文件发布到github上，合并执行</p>
+<p><code>hexo g -d</code></p>
+<h3 id="三、写博客注意点"><a href="#三、写博客注意点" class="headerlink" title="三、写博客注意点"></a>三、写博客注意点</h3><ol>
 <li>如何上传带图片的博客？</li>
 </ol>
 <p><img src="useImage.png" alt></p>
@@ -629,7 +634,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备"><span class="nav-number">1.</span> <span class="nav-text">准备:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始搭建博客"><span class="nav-number">2.</span> <span class="nav-text">开始搭建博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到github"><span class="nav-number">3.</span> <span class="nav-text">部署到github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题配置"><span class="nav-number">4.</span> <span class="nav-text">主题配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于写博客"><span class="nav-number">5.</span> <span class="nav-text">关于写博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、如何新建博客"><span class="nav-number">5.1.</span> <span class="nav-text">一、如何新建博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、写博客注意点"><span class="nav-number">5.2.</span> <span class="nav-text">二、写博客注意点</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备"><span class="nav-number">1.</span> <span class="nav-text">准备:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始搭建博客"><span class="nav-number">2.</span> <span class="nav-text">开始搭建博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到github"><span class="nav-number">3.</span> <span class="nav-text">部署到github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题配置"><span class="nav-number">4.</span> <span class="nav-text">主题配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于写博客"><span class="nav-number">5.</span> <span class="nav-text">关于写博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、如何新建博客"><span class="nav-number">5.1.</span> <span class="nav-text">一、如何新建博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、写博客注意点"><span class="nav-number">5.2.</span> <span class="nav-text">三、写博客注意点</span></a></li></ol></li></ol></div>
             
 
           </div>
